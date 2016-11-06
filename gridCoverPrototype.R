@@ -43,6 +43,8 @@ init_grid <- function(bounds, rad){
 ## Given a circle centroid and a radius, return the 
 ## centroids and radii to cover the circle with five 
 ## smaller circles
+##
+## origin = c(x,y,rad)
 
 divide_circle <- function(origin){
     new_rad = (pi/5)*origin[3]
@@ -50,17 +52,6 @@ divide_circle <- function(origin){
     res = data.frame(x=c(origin[1]+new_rad*sin(transform_vec)),
                      y=c(origin[2]+new_rad*cos(transform_vec)),
                      rad=new_rad)
-    print(dim(res))
-    return(res)
-}
-
-divide_circle <- function(origin){
-    new_rad = (pi/5)*origin[3]
-    transform_vec = pi*seq(2,10,by=2)/5
-    res = data.frame(x=c(origin[1]+new_rad*sin(transform_vec)),
-                     y=c(origin[2]+new_rad*cos(transform_vec)),
-                     rad=new_rad)
-    print(dim(res))
     return(res)
 }
 
